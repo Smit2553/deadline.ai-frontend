@@ -16,11 +16,11 @@ const Task = ({ title, description, dueDate, completed }) => {
         isCompleted ? styles.complete : styles.incomplete,
       ]}
     >
-      <View
-        style={{ flexDirection: "column", justifyContent: "space-between" }}
-      >
+      <View style={styles.leftContainer}>
         <Text style={styles.title}>{title}</Text>
-        <Text style={styles.description}>{description}</Text>
+        <Text style={styles.description} numberOfLines={2}>
+          {description}
+        </Text>
         <Text style={styles.dueDate}>Due: {dueDate}</Text>
       </View>
       <TouchableOpacity onPress={toggleCompletion}>
@@ -43,7 +43,6 @@ const styles = StyleSheet.create({
     paddingVertical: 12,
     elevation: 5,
     flexDirection: "row",
-    justifyContent: "space-between",
     alignItems: "center",
   },
   incomplete: {
@@ -53,6 +52,10 @@ const styles = StyleSheet.create({
   complete: {
     borderColor: "green",
     borderWidth: 2,
+  },
+  leftContainer: {
+    flex: 1,
+    marginRight: 8,
   },
   title: {
     fontSize: 18,

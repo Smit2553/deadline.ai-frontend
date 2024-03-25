@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, ScrollView } from "react-native";
 import { useRoute } from "@react-navigation/native";
 
 const TaskDetails = () => {
@@ -8,9 +8,11 @@ const TaskDetails = () => {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>{title}</Text>
-      <Text style={styles.description}>{description}</Text>
-      <Text style={styles.dueDate}>Due: {dueDate}</Text>
+      <ScrollView>
+        <Text style={styles.title}>{title}</Text>
+        <Text style={styles.description}>{description}</Text>
+        <Text style={styles.dueDate}>Due: {dueDate}</Text>
+      </ScrollView>
     </View>
   );
 };
