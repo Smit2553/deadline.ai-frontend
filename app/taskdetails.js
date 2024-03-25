@@ -4,7 +4,7 @@ import { useRoute } from "@react-navigation/native";
 
 const TaskDetails = () => {
   const route = useRoute();
-  const { title, description, dueDate } = route.params;
+  const { title, description, dueDate, completed } = route.params;
 
   return (
     <View style={styles.container}>

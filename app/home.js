@@ -18,6 +18,7 @@ const CalendarScreen = () => {
               title: "Complete React Native tutorial",
               description: "Follow the steps to learn React Native",
               dueDate: "March 30, 2024",
+              completed: false,
             })
           }
         >
@@ -25,6 +26,7 @@ const CalendarScreen = () => {
             title="Complete React Native tutorial"
             description="Follow the steps to learn React Native"
             dueDate="March 30, 2024"
+            completed={false}
           />
         </TouchableOpacity>
         <TouchableOpacity
@@ -33,10 +35,16 @@ const CalendarScreen = () => {
               title: "Test", // Corrected spelling of "Test"
               description: "Test",
               dueDate: "March 30, 2024",
+              completed: false,
             })
           }
         >
-          <Task title="Test" description="Test" dueDate="March 30, 2024" />
+          <Task
+            title="Test"
+            description="Test"
+            dueDate="March 30, 2024"
+            completed={false}
+          />
         </TouchableOpacity>
       </ScrollView>
     </View>
