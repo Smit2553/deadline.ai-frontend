@@ -44,7 +44,11 @@ function App() {
           component={Home}
           options={{ headerShown: false }}
         />
-        <Stack.Screen name="Task Details" component={TaskDetails} />
+        <Stack.Screen
+          name="Task Details"
+          component={TaskDetails}
+          options={({ route }) => ({ title: route.params.title })}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );
