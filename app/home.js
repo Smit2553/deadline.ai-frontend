@@ -10,6 +10,7 @@ import { useNavigation } from "@react-navigation/native"; // Import navigation h
 import Task from "../components/task.js";
 import TaskDetails from "../app/taskdetails.js"; // Import TaskDetails component
 import { useRoute } from "@react-navigation/native";
+import data from "./tasks.json";
 
 const CalendarScreen = () => {
   const route = useRoute(); // Declare route variable with const
@@ -23,10 +24,14 @@ const CalendarScreen = () => {
 
   const getAllTasks = async () => {
     try {
-      const response = await fetch("http://10.0.2.2:8000/tasks");
+      // Fetch tasks from the local JSON file
+      /*
+      const response = await fetch("./tasks.json");
       const json = await response.json();
+      */
 
       // Map the fetched tasks to match the Task component's props
+      const json = data;
       const mappedTasks = json.map((task) => ({
         id: task.id, // Assuming each task has a unique ID
         title: task.summary,
