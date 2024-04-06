@@ -8,12 +8,12 @@ export default function LoginScreen() {
   const navigation = useNavigation();
   return (
     <View className="bg-white h-full w-full">
-      <Image className="h-full w-full absolute" source={require('../assets/images/background.png')} />
+      <Image className="h-full w-full absolute" source={require('../assets/background.png')} />
 
       {/* lights */}
       <View className="flex-row justify-around w-full absolute">
-        <Animated.Image entering={FadeInRight.delay(200).duration(1000).springify()} className="h-[160] w-[160] top-[50]" source={require('../assets/images/target.png')} />
-        <Animated.Image entering={FadeInUp.delay(400).duration(1000).springify()} className="h-[190] w-[130]" source={require('../assets/images/lightbulb.png')} />
+        <Animated.Image entering={FadeInRight.delay(200).duration(1000).springify()} className="h-[160] w-[160] top-[50]" source={require('../assets/target.png')} />
+        <Animated.Image entering={FadeInUp.delay(400).duration(1000).springify()} className="h-[190] w-[130]" source={require('../assets/light.png')} />
       </View>
 
       {/* title and form  */}
