@@ -6,7 +6,7 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import TaskDetails from "./app/taskdetails.js";
-import LoginScreen from "./app/LoginScreen.js"
+import SignupScreen from "./app/SignupScreen.js";
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
@@ -32,7 +32,6 @@ function Home() {
     >
       <Tab.Screen name="Tasks" component={TaskScreen} />
       <Tab.Screen name="Looking for Group" component={GroupScreen} />
-      <Tab.Screen name="Login" component={LoginScreen}/>
     </Tab.Navigator>
   );
 }
@@ -40,7 +39,7 @@ function Home() {
 function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator>
+      <Stack.Navigator initialRouteName="Sign Up">
         <Stack.Screen
           name="Home"
           component={Home}
@@ -50,6 +49,11 @@ function App() {
           name="Task Details"
           component={TaskDetails}
           options={({ route }) => ({ title: route.params.title })}
+        />
+        <Stack.Screen
+          name="Sign Up"
+          component={SignupScreen}
+          options={{ headerShown: false }}
         />
       </Stack.Navigator>
     </NavigationContainer>
