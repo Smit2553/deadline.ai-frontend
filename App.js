@@ -7,6 +7,7 @@ import Ionicons from "react-native-vector-icons/Ionicons";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import TaskDetails from "./app/taskdetails.js";
 import SignupScreen from "./app/SignupScreen.js";
+import AssistantPage from "./app/assistant.js";
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
@@ -32,6 +33,7 @@ function Home() {
     >
       <Tab.Screen name="Tasks" component={TaskScreen} />
       <Tab.Screen name="Looking for Group" component={GroupScreen} />
+      <Tab.Screen name="Assistant" component={AssistantPage} />
     </Tab.Navigator>
   );
 }
