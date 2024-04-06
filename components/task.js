@@ -27,7 +27,7 @@ const Task = ({ title, description, dueDate, completed }) => {
         <Ionicon
           name={isCompleted ? "checkbox" : "checkbox-outline"}
           size={32}
-          color={isCompleted ? "green" : "red"}
+          color={isCompleted ? "lightblue" : "red"}
         />
       </TouchableOpacity>
     </View>
@@ -50,7 +50,7 @@ const styles = StyleSheet.create({
     borderWidth: 2,
   },
   complete: {
-    borderColor: "green",
+    borderColor: "lightblue",
     borderWidth: 2,
   },
   leftContainer: {

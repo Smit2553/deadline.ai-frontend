@@ -6,34 +6,26 @@ import {
   Text,
   StyleSheet,
 } from "react-native";
-import { useNavigation } from "@react-navigation/native"; // Import navigation hook
+import { useNavigation } from "@react-navigation/native";
 import Task from "../components/task.js";
-import TaskDetails from "../app/taskdetails.js"; // Import TaskDetails component
 import { useRoute } from "@react-navigation/native";
-import data from "./tasks.json";
+import axios from "axios"; // Changed import to axios
 
 const CalendarScreen = () => {
-  const route = useRoute(); // Declare route variable with const
+  const route = useRoute();
   const navigation = useNavigation();
-  const [tasks, setTasks] = useState([]); // State to hold fetched tasks
+  const [tasks, setTasks] = useState([]);
 
   useEffect(() => {
-    // Fetch tasks when the component mounts
     getAllTasks();
-  }, []); // Empty dependency array to ensure effect runs only once
+  }, []);
 
   const getAllTasks = async () => {
     try {
-      // Fetch tasks from the local JSON file
-      /*
-      const response = await fetch("./tasks.json");
-      const json = await response.json();
-      */
-
-      // Map the fetched tasks to match the Task component's props
-      const json = data;
+      const response = await axios.get("http://192.168.1.8:8000/weekly_tasks/"); // Changed Axios to axios
+      const json = response.data;
       const mappedTasks = json.map((task) => ({
-        id: task.id, // Assuming each task has a unique ID
+        id: task.id,
         title: task.summary,
         description: task.description,
         dueDate: new Date(task.date).toLocaleDateString("en-US", {
@@ -44,7 +36,6 @@ const CalendarScreen = () => {
         completed: task.status === 1 ? true : false,
       }));
 
-      // Update the tasks state with the fetched tasks
       setTasks(mappedTasks);
     } catch (error) {
       console.error(error);
@@ -56,7 +47,7 @@ const CalendarScreen = () => {
       <ScrollView>
         {tasks.map((task) => (
           <TouchableOpacity
-            key={task.id} // Use unique task ID as the key
+            key={task.id}
             onPress={() =>
               navigation.navigate("Task Details", {
                 title: task.title,

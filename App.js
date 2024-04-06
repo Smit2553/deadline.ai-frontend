@@ -8,6 +8,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import TaskDetails from "./app/taskdetails.js";
 import SignupScreen from "./app/SignupScreen.js";
 import AssistantPage from "./app/assistant.js";
+import CreatePost from "./app/createpost.js";
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
@@ -23,6 +24,8 @@ function Home() {
             iconName = "list-outline";
           } else if (route.name === "Looking for Group") {
             iconName = "people-outline";
+          } else if (route.name === "Assistant") {
+            iconName = "chatbubbles-outline";
           }
 
           return <Ionicons name={iconName} size={size} color={color} />;
@@ -32,7 +35,11 @@ function Home() {
       })}
     >
       <Tab.Screen name="Tasks" component={TaskScreen} />
-      <Tab.Screen name="Looking for Group" component={GroupScreen} />
+      <Tab.Screen
+        name="Looking for Group"
+        component={GroupScreen}
+        options={{ headerShown: false }}
+      />
       <Tab.Screen name="Assistant" component={AssistantPage} />
     </Tab.Navigator>
   );
@@ -56,6 +63,13 @@ function App() {
           name="Sign Up"
           component={SignupScreen}
           options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="Create Group"
+          component={CreatePost}
+          options={{
+            title: "Create a Looking for Group Post",
+          }}
         />
       </Stack.Navigator>
     </NavigationContainer>
