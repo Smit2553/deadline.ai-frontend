@@ -51,7 +51,7 @@ export default function ChatPage() {
 
   async function getResponse(userMessage) {
     const openaiInstance = new openai({
-      apiKey: "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", // Provide your OpenAI API key here
+      apiKey: "INSERT_API_KEY", // Provide your OpenAI API key here
     });
 
     const contextTasks = mappedTasks.map((task) => ({
